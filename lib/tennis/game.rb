@@ -21,14 +21,13 @@ class Game
   end
 
   def announce_deuce
-    return 'Deduce' if players.first.points_amount == 40 && players.last.points_amount == 40
-    find_winner_after_deuce
-  end
-
-  def find_winner_after_deuce
     player1 = players.first.points_amount
     player2 = players.last.points_amount
+    return 'Deduce' if player1 == 40 && player2 == 40
+    find_winner_after_deuce(player1, player2)
+  end
 
+  def find_winner_after_deuce(player1, player2)
     if player1 - player2 == 2
       winner = "The winner is #{players.first.name}"
     end
