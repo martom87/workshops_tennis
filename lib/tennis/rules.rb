@@ -1,7 +1,7 @@
 require_relative 'player'
 require 'pry'
 
-class Game
+class Rules
   def initialize(players = [])
     @players = players
   end

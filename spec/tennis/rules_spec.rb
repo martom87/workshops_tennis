@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative '../../lib/tennis/game.rb'
+require_relative '../../lib/tennis/rules.rb'
 
-RSpec.describe Game do
+RSpec.describe Rules do
 
   subject { described_class.new(players).call }
   let(:player1) { Player.new(39, 'Karolina') }
