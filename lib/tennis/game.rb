@@ -5,7 +5,7 @@ class Game
   end
 
   def call
-    "The winner is #{find_winner.name}"
+    find_winner
   end
 
   private
@@ -14,6 +14,15 @@ class Game
 
 
   def find_winner
-    players.max_by{|player| player.points_amount}
+    unless (players.first.points_amount == players.last.points_amount)
+      winner = players.max_by{|player| player.points_amount}
+      "The winner is #{winner.name}" if winner.points_amount >= 40
+    else
+      announce_deuce
+    end
+  end
+
+  def announce_deuce
+    'Deduce' if players.first.points_amount == 40
   end
 end
